@@ -8,6 +8,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-apollo-hooks": "^0.4.3",
+    "react-autosize-textarea": "^7.1.0",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
