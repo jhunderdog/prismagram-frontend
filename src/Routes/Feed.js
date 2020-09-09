@@ -30,7 +30,6 @@ const FEED_QUERY = gql`
           id
           username
         }
-        createdAt
       }
     }
   }
@@ -65,7 +64,6 @@ export default () => {
             likeCount={post.likeCount}
             isLiked={post.isLiked}
             comments={post.comments}
-            createdAt={post.createdAt}
           />
         ))}
     </Wrapper>

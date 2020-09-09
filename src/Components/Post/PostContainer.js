@@ -12,7 +12,6 @@ const PostContainer = ({
   likeCount,
   isLiked,
   comments,
-  createdAt,
   caption,
   location,
 }) => {
@@ -49,6 +48,15 @@ const PostContainer = ({
       setLikeCount(likeCountS + 1);
     }
   };
+
+  const onKeyPress = (e) => {
+    const { keyCode } = e;
+    if (keyCode === 13) {
+      comment.setValue("");
+      // addCommentMutation();
+    }
+    return;
+  };
   return (
     <PostPresenter
       user={user}
@@ -58,12 +66,12 @@ const PostContainer = ({
       caption={caption}
       isLiked={isLikedS}
       comments={comments}
-      createdAt={createdAt}
       newComment={comment}
       setIsLiked={setIsLiked}
       setLikeCount={setLikeCount}
       currentItem={currentItem}
       toggleLike={toggleLike}
+      onKeyPress={onKeyPress}
     />
   );
 };
@@ -95,7 +103,6 @@ PostContainer.propTypes = {
   ).isRequired,
   caption: PropTypes.string.isRequired,
   location: PropTypes.string,
-  createdAt: PropTypes.string,
 };
 
 export default PostContainer;
