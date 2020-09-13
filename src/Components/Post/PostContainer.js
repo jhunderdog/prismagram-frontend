@@ -27,7 +27,6 @@ const PostContainer = ({
   const addCommentMutation = useMutation(ADD_COMMENT, {
     variables: { postId: id, text: comment.value },
   });
-
   const slide = () => {
     const totalFiles = files.length;
     if (currentItem === totalFiles - 1) {
@@ -62,10 +61,11 @@ const PostContainer = ({
         setSelfComments([...selfComments, addComment]);
         comment.setValue("");
       } catch {
-        toast.errorR("Cant send comment");
+        toast.error("Cant send comment");
       }
     }
   };
+
   return (
     <PostPresenter
       user={user}
