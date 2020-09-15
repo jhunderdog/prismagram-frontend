@@ -103,6 +103,7 @@ const Comment = styled.li`
 export default ({
   user: { username, avatar },
   location,
+  caption,
   files,
   isLiked,
   likeCount,
@@ -119,6 +120,7 @@ export default ({
       <UserColumn>
         <FatText text={username} />
         <Location>{location}</Location>
+        <Location>{caption}</Location>
       </UserColumn>
     </Header>
     <Files>
