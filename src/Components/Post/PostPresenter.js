@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import TextareaAutosize from "react-autosize-textarea";
 import FatText from "../FatText";
 import Avatar from "../Avatar";
@@ -11,6 +12,9 @@ const Post = styled.div`
   max-width: 600px;
   user-select: none;
   margin-bottom: 25px;
+  a {
+    color: inherit;
+  }
 `;
 
 const Header = styled.header`
@@ -100,6 +104,9 @@ const Comment = styled.li`
   }
 `;
 
+const Caption = styled.div`
+  margin: 10px 0px;
+`;
 export default ({
   user: { username, avatar },
   location,
@@ -118,9 +125,10 @@ export default ({
     <Header>
       <Avatar size="sm" url={avatar} />
       <UserColumn>
-        <FatText text={username} />
+        <Link to={`/${username}`}>
+          <FatText text={username} />
+        </Link>
         <Location>{location}</Location>
-        <Location>{caption}</Location>
       </UserColumn>
     </Header>
     <Files>
@@ -139,6 +147,10 @@ export default ({
         </Button>
       </Buttons>
       <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+      <Caption>
+        <FatText text={username} />
+        {caption}
+      </Caption>
       {comments && (
         <Comments>
           {comments.map((comment) => (
